@@ -17,6 +17,7 @@ public class ScatteringAndGatheringTest {
     public static void main(String[] args) {
         // 使用ServerSocketChannel 和 SocketChannel
         try {
+            // ServerSocketChannel 功能类似与SeverSocket，在服务端监听新的客户端连接
             ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(9999);
             // 从ServerSocketChannel获取socket并启动
@@ -26,6 +27,7 @@ public class ScatteringAndGatheringTest {
             byteBuffers[0] = ByteBuffer.allocate(3);
             byteBuffers[1] = ByteBuffer.allocate(5);
             // 等待客户端进行连接
+            // SocketChannel类是网络的IO通道具体负责读写操作，NIO把缓冲区的数据写入通道，或者把通道的数据写入缓冲区
             SocketChannel accept = serverSocketChannel.accept();
             int messageLength = 10 ; // 假定从客户端接收的字节数
             while (true){
