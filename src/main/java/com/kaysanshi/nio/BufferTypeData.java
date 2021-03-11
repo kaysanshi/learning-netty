@@ -26,6 +26,13 @@ public class BufferTypeData {
         System.out.println(byteBuffer.getDouble());
         System.out.println(byteBuffer.getShort());
         System.out.println(byteBuffer.getChar());
-
+        /**
+         * ~out
+         * 1
+         * 1
+         * 1.0
+         * 1
+         * a
+         */
     }
 }

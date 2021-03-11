@@ -26,7 +26,9 @@ public class BIOClient {
             Thread.sleep(500);
             outputStreamWriter.close();
             socket.close();
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
