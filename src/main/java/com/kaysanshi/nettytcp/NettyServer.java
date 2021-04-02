@@ -23,6 +23,13 @@ public class NettyServer {
          * 4.两者都含有NioEventLoop个数 默认实际为cpu核数*2
          */
         EventLoopGroup bossGroup= new NioEventLoopGroup(1);
+        /**
+         * NioEventLoopGroup:包含多个NioEventLoop
+         * 每个NioEventLoop中包含一个Selector,一个taskQueue
+         * 每个NioEventLoop的Selector上可以注册监听多个NioChannel
+         * 每个NioChannel只会绑定一个唯一的NioEventLoop
+         * 每个NioChannel绑定一个ChannelPipeline
+         */
         EventLoopGroup workGroup = new NioEventLoopGroup();
         ServerBootstrap  bootstrap = new ServerBootstrap();
         bootstrap.group(bossGroup,workGroup) // 设置两个线程组
